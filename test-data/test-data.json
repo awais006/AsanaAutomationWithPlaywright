@@ -1,0 +1,40 @@
+{
+	"projects": [
+		{
+			"column": "Milestones",
+			"project": "Cross-Functional Project Plan",
+			"task": "[Example] Finalize budget",
+			"tags": ["High", "Done"]
+		},
+		{
+			"column": "Next steps",
+			"project": "Cross-Functional Project Plan",
+			"task": "[Example] Find venue for holiday party",
+			"tags": ["Low", "Not Started"]
+		},
+		{
+			"column": "Planning",
+			"project": "Cross-Functional Project Plan",
+			"task": "[Example] Redesign landing page",
+			"tags": ["High", "Not Started"]
+		},
+		{
+			"column": "New Requests",
+			"project": "Work Requests",
+			"task": "[Example] Laptop setup for new hire",
+			"tags": ["Medium priority", "Low effort", "New hardware", "Not Started"]
+		},
+		{
+			"column": "In Progress",
+			"project": "Work Requests",
+			"task": "[Example] Password not working",
+			"tags": ["Low effort", "Low priority", "Password reset", "Waiting"]
+		},
+		{
+			"column": "Completed",
+			"project": "Work Requests",
+			"task": "[Example] New keycard for Daniela V",
+			"tags": ["Low effort", "New hardware", "High priority", "Done"]
+		}	
+	]
+}
