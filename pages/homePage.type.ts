@@ -52,7 +52,11 @@ export class HomePage {
     {
         column = 'Progress';        
     }
-
+    if(column == 'To do')
+    {
+        column = 'To';
+    }
+    
     return column;
   } 
 

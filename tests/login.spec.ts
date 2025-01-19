@@ -1,35 +1,56 @@
 import { test } from '@playwright/test'
-import { ProjectDetails } from '../models/projectDetails.type';
 import { LoginPage } from '../pages/loginPage.type';
-import { HomePage } from '../pages/homePage.type';
 import * as projectsData from '../test-data/test-data.json';
 import * as config from '../config.json';
+import { log } from 'console';
 
-const projectList: ProjectDetails[] = projectsData.projects;
+let loginPage: LoginPage;
 
-test.describe('Verify Projects in Columns with Tags', () => {
-    let loginPage: LoginPage;
-  
-    test.beforeAll(async () => {
-      const email = config.email!;
-      const password = config.password!;
-      loginPage = await LoginPage.initialize();
-      await loginPage.login(email, password);
-    });
+test('successful login test', async() => {
+    //let loginPage: LoginPage;
 
-    projectList.forEach((project) => {
-        test(`Verify project: ${project.project}, task: ${project.task} in column: ${project.column}`, async () => {
-          const homePage = await new HomePage(loginPage.getPage());
+    const email = config.email!;
+    const password = config.password!;
+    loginPage = await LoginPage.initialize();
+    await loginPage.fillEmailAddressAndClickContinue(email);
+    await loginPage.fillPasswordAndClickLogin(password);
+    await loginPage.verifyHomePageIsOpened();   
+});
 
-          const { column, project: projectName, task, tags } = project;
+test('enter invalid email test', async() => {
+    //let loginPage: LoginPage;
 
-          await homePage.OpenProjectFromSidebar(projectName);
-          await homePage.VerifyTaskInsideTheProject(column, projectName, task);
-          await homePage.VerifyTagsUnderTaskInsideTheProject(column, projectName, task, tags);
-        });
-    });
+    const email = config.invalidEmail!;
+    loginPage = await LoginPage.initialize();
+    await loginPage.fillEmailAddressAndClickContinue(email);
+    await loginPage.verifyInvalidEmailErrorMessageIsVisible();
+});
 
-    test.afterAll(async () => {
-        await loginPage.closeBrowser();
-    });
+test('enter invalid password test', async() => {
+    //let loginPage: LoginPage;
+
+    const email = config.email!;
+    const password = config.invalidPassword!;
+    loginPage = await LoginPage.initialize();
+    await loginPage.fillEmailAddressAndClickContinue(email);
+    
+    await loginPage.verifyEnterPasswordPageIsOpened();
+    
+    await loginPage.fillPasswordAndClickLogin(password);
+
+    await loginPage.verifyInvalidPasswordErrorMessageIsVisible();
+});
+
+test('enter new email address test', async() => {
+    //let loginPage: LoginPage;
+
+    const email = config.newemail!;
+    loginPage = await LoginPage.initialize();
+    await loginPage.fillEmailAddressAndClickContinue(email);
+    
+    await loginPage.verifySignupPageIsOpened();
+});
+
+test.afterEach(async() => {
+    await loginPage.closeBrowser();
 });

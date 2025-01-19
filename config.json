@@ -1,5 +1,8 @@
 {
     "baseUrl": "https://app.asana.com/-/login",
-    "email": "baxay53789@kazvi.com",
-    "password": "Password123"
+    "email": "nabit@tohru.org",
+    "newemail": "user@user.com",
+    "password": "Password123",
+    "invalidEmail": "user",
+    "invalidPassword": "InvalidPassword"
   }

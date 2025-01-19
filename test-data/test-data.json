@@ -1,22 +1,22 @@
 {
 	"projects": [
 		{
-			"column": "Milestones",
-			"project": "Cross-Functional Project Plan",
-			"task": "[Example] Finalize budget",
-			"tags": ["High", "Done"]
+			"column": "To do",
+			"project": "Cross-functional project plan",
+			"task": "Draft project brief",
+			"tags": ["Low", "On track"]
 		},
 		{
-			"column": "Next steps",
-			"project": "Cross-Functional Project Plan",
-			"task": "[Example] Find venue for holiday party",
-			"tags": ["Low", "Not Started"]
+			"column": "To do",
+			"project": "Cross-functional project plan",
+			"task": "Schedule kickoff meeting",
+			"tags": ["Medium", "At risk"]
 		},
 		{
-			"column": "Planning",
-			"project": "Cross-Functional Project Plan",
-			"task": "[Example] Redesign landing page",
-			"tags": ["High", "Not Started"]
+			"column": "To do",
+			"project": "Cross-functional project plan",
+			"task": "Share timeline with teammates",
+			"tags": ["High", "Off track"]
 		},
 		{
 			"column": "New Requests",
